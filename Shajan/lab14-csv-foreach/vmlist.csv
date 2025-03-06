@@ -1,0 +1,5 @@
+env,size,project
+dev,t2.nano,training
+testing,t2.micro,ticketing
+stage,t2.small,testing
+prod,t2.large,production

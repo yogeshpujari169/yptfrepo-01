@@ -1,0 +1,23 @@
+#source network module
+module "net" {
+  source = "./modules/network"
+  netblock = "10.111.0.0/16"
+  dbsubnetblock = "10.111.1.0/24"
+  websubnetblock = "10.111.2.0/24"
+}
+
+module "sss3" {
+  source = "./modules/storage"
+  s3name = "s3demo"
+  depends_on = [ module.ec22vm ]
+}
+module "ec22vm" {
+  source = "./modules/compute"
+  vmenv = "dev"
+  vmsize = "t2.nano"
+  vmsubnetid = module.net.vpcwsnetdata
+}
+
+output "vpcdata" {
+  value = module.net
+}

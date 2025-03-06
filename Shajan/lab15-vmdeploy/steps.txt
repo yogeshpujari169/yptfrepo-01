@@ -1,0 +1,11 @@
+#Create VPC - 10.100.0.0/16
+#Create Subnet - 10.100.1.0/24 -https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/subnet
+#Create Internet Gateway -attach to vpc
+#Create Route Table - attached with subnet
+#Create Route in Route Table for Internet Access( -add rt 0.0.0.0 target igw)
+#Associate Route Table with Subnet
+#Create Security Group in the VPC - add inbound 22
+#Create with port 80, 22 as inbound open ingress rule
+#Create egress rule allow traffic from EC2
+#Create EC2 Instance - ami-066784287e358dad1, t2.micro, enable auto ip
+#Elastic ip - associate with ec2
